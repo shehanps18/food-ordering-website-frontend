@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, IconButton, Badge } from '@mui/material';
+import { Avatar, IconButton, Badge, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { pink } from '@mui/material/colors';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -7,8 +7,8 @@ import "./Navbar.css"
 
 export const Navbar = () => {
     return (
-        <div
-            className='px-5 z-50 py-[.8rem] lg:px-20 flex justify-between'
+        <Box
+            className='px-5 sticky top-0 z-50 py-[.8rem] lg:px-20 flex justify-between'
             style={{ backgroundColor: '#e91e63' }}
         >
             <div className='lg:mr-10 cursor-pointer flex items-center space-x-4'>
@@ -25,10 +25,10 @@ export const Navbar = () => {
                 </div>
                 <div>
                     <Badge badgeContent={2} color="primary">
-                        <ShoppingCartIcon color="action" />
+                        <ShoppingCartIcon sx={{ color: 'black' }} />
                     </Badge>
                 </div>
             </div>
-        </div>
+        </Box>
     )
 }
