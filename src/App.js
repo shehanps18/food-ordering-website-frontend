@@ -7,16 +7,18 @@ import { CssBaseline } from '@mui/material';
 import RestaurantDetails from './component/restaurantComponent/RestaurantDetails';
 import Cart from './component/cartComponent/Cart';
 import Profile from './component/profileComponent/Profile';
+import { CustomerRouter } from './component/routerComponent/CustomerRouter';
 
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <Home /> */}
       {/* <RestaurantDetails/> */}
       {/* <Cart/> */}
-      <Profile/>
+      {/* <Profile/> */}
+      <CustomerRouter/> 
       </CssBaseline>
       
     </ThemeProvider>
