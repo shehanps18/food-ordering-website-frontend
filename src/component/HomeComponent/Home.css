@@ -1,0 +1,33 @@
+/* Home.css */
+
+.banner {
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/869/719/717/cuisine-food-india-indian-wallpaper-preview.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 85vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.text-center {
+    z-index: 20;
+}
+
+.text-white {
+    color: white;
+}
