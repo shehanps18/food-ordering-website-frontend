@@ -5,7 +5,8 @@ import Address from './Address';
 import Orders from './Orders';
 import Favorites from './Favorites';
 import UserProfile from './UserProfile';
-import Events from './Events';
+import { Events } from './Events';
+
 
 const Profile = () => {
     const [openSideBar,setOpenSideBar]= useState(false);
