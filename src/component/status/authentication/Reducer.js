@@ -1,4 +1,4 @@
-import { error } from "yupp/util/logger"
+
 import { ADD_TO_FAVOURITE_FALIUR, ADD_TO_FAVOURITE_REQUEST, ADD_TO_FAVOURITE_SUCCESS, GET_USER_FALIUR, GET_USER_REQUEST, LOGIN_FALIUR, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FALIUR, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType";
 import { isPresentInFaviurite } from "../../config/Logic";
 

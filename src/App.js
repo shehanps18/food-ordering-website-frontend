@@ -9,7 +9,13 @@ import Cart from './component/cartComponent/Cart';
 import Profile from './component/profileComponent/Profile';
 import { CustomerRouter } from './component/routerComponent/CustomerRouter';
 
+
 function App() {
+  // const dispatch=useDispatch()
+  // const jwt=localStorage.getItem("jwt")
+  // useEffect(()=>{
+  //   dispatch(getUser(jwt))
+  // },[])
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline>

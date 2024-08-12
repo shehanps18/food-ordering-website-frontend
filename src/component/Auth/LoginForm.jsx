@@ -12,9 +12,9 @@ const initialValues = {
 }
 export const LoginForm = () => {
     const navigate = useNavigate()
-    const dispatch= useDispatch()
-    const handleSubmit = (values) => { 
-        dispatch(loginUser({userData:values,navigate}))
+    const dispatch = useDispatch()
+    const handleSubmit = (values) => {
+        dispatch(loginUser({ userData: values, navigate }))
     }
     return (
         <div>
@@ -43,9 +43,9 @@ export const LoginForm = () => {
                         variant='contained'>Login</Button>
                 </Form>
             </Formik>
-            <Typography variant='body2' align='center' sx={{mt:3}}>
+            <Typography variant='body2' align='center' sx={{ mt: 3 }}>
                 Don't have an account?
-                <Button  size='small'  onClick={() => navigate("/account/register")}>Register</Button>
+                <Button size='small' onClick={() => navigate("/account/register")}>Register</Button>
             </Typography>
         </div>
     )

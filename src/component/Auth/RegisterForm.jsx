@@ -14,11 +14,11 @@ const initialValues = {
 
 export default function RegisterForm() {
     const navigate = useNavigate();
-    const dispatch= useDispatch()
+    // const dispatch= useDispatch()
 
-    const handleSubmit = (values) => {
-        console.log("form values", values);
-        dispatch(registerUser({userData:values,navigate}))
+    const handleSubmit = () => {
+        // console.log("form values", values);
+        // dispatch(registerUser({userData:values,navigate}))
     };
 
     return (
