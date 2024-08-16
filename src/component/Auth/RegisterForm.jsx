@@ -6,7 +6,7 @@ import { registerUser } from '../status/authentication/Action';
 import { useDispatch } from 'react-redux';
 
 const initialValues = {
-    fullname: "",
+    fullName: "",
     email: "",
     password: "",
     role: "ROLE_CUSTOMER"
@@ -14,11 +14,11 @@ const initialValues = {
 
 export default function RegisterForm() {
     const navigate = useNavigate();
-    // const dispatch= useDispatch()
+    const dispatch= useDispatch()
 
-    const handleSubmit = () => {
-        // console.log("form values", values);
-        // dispatch(registerUser({userData:values,navigate}))
+    const handleSubmit = (values) => {
+        console.log("form values", values);
+        dispatch(registerUser({userData:values,navigate}))
     };
 
     return (
@@ -31,7 +31,7 @@ export default function RegisterForm() {
                     <Form onSubmit={handleSubmit}>
                         <Field
                             as={TextField}
-                            name="fullname"
+                            name="fullName"
                             label="Full Name"
                             fullWidth
                             variant="outlined"

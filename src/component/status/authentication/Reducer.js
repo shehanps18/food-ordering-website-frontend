@@ -1,5 +1,5 @@
 
-import { ADD_TO_FAVOURITE_FALIUR, ADD_TO_FAVOURITE_REQUEST, ADD_TO_FAVOURITE_SUCCESS, GET_USER_FALIUR, GET_USER_REQUEST, LOGIN_FALIUR, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FALIUR, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType";
+import { ADD_TO_FAVOURITE_FALIUR, ADD_TO_FAVOURITE_REQUEST, ADD_TO_FAVOURITE_SUCCESS, GET_USER_FALIUR, GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_FALIUR, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, REGISTER_FALIUR, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType";
 import { isPresentInFaviurite } from "../../config/Logic";
 
 const initialState = {
@@ -26,6 +26,14 @@ export const authReducer = (state = initialState, action) => {
                 jwt: action.payload,
                 success: "Register Success"
             };
+
+        case GET_USER_SUCCESS:
+            return {
+                ...state, isLoading: false,
+                user: action.payload,
+
+            };
+
         case ADD_TO_FAVOURITE_SUCCESS:
             return {
                 ...state,
@@ -34,7 +42,9 @@ export const authReducer = (state = initialState, action) => {
                 favourite: isPresentInFaviurite(state.favourite, action.payload)
                     ? state.favourite.filter((item) => item.id !== action.payload.id)
                     : [action.payload, ...state.favourite]
-            }
+            };
+            case LOGOUT:
+                return initialState;
         case REGISTER_FALIUR:
         case LOGIN_FALIUR:
         case GET_USER_FALIUR:
