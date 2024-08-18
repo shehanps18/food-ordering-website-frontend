@@ -17,7 +17,6 @@ const restaurantReducer = (state = initialState, action) => {
         case actionTypes.GET_ALL_EVENTS_REQUEST:
         case actionTypes.DELETE_RESTAURANTS_REQUEST:
         case actionTypes.UPDATE_RESTAURANTS_REQUEST:
-        case actionTypes.GET_ALL_EVENTS_REQUEST:
         case actionTypes.CREATE_CATEGORY_REQUEST:
         case actionTypes.GET_RESTAURANTS_CATEGORY_REQUEST:
             return {

@@ -7,6 +7,8 @@ import { authReducer } from "./authentication/Reducer";
 //  export const store = legacy_createStore(rooteReducer,applyMiddleware(thunk));
 import { configureStore } from '@reduxjs/toolkit'
 import restaurantReducer from "./restaurant/Reducer";
+import menuItemReducer from "./menu/Reducer";
+import cartReducer from "./cart/Reducer";
 
 // export const store = configureStore({
 //   reducer: {
@@ -17,6 +19,8 @@ export const store = configureStore({
     reducer: {
         auth: authReducer,
         restaurant: restaurantReducer,
+        menu: menuItemReducer,
+        cart:cartReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

@@ -1,19 +1,77 @@
-export const CREATE_MENU_ITEM_REQUEST = 'CREATE_MENU_ITEM_REQUEST'
-export const CREATE_MENU_ITEM_SUCCESS = 'CREATE_MENU_ITEM_SUCCESS'
-export const CREATE_MENU_ITEM_FAILURE = 'CREATE_MENU_ITEM_FAILURE'
+import * as actionTypes from "./ActionType"
 
-export const GET_MENU_ITEMS_BY_RESTAURANTS_ID_REQUEST = 'GET_MENU_ITEMS_BY_RESTAURANTS_ID_REQUEST'
-export const GET_MENU_ITEMS_BY_RESTAURANTS_ID_SUCCESS = 'GET_MENU_ITEMS_BY_RESTAURANTS_ID_SUCCESS'
-export const GET_MENU_ITEMS_BY_RESTAURANTS_ID_FAILURE = 'GET_MENU_ITEMS_BY_RESTAURANTS_ID_FAILURE'
+const initialState = {
+    menuItems: [],
+    loading: [],
+    error: null,
+    search: [],
+    message: null
+};
 
-export const DELETE_MENU_ITEM_REQUEST = 'DELETE_MENU_ITEM_REQUEST'
-export const DELETE_MENU_ITEM_SUCCESS = 'DELETE_MENU_ITEM_SUCCESS'
-export const DELETE_MENU_ITEM_FAILURE = 'DELETE_MENU_ITEM_FAILURE'
+const menuItemReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case actionTypes.CREATE_MENU_ITEM_REQUEST:
+        case actionTypes.SEARCH_MENU_ITEM_REQUEST:
+        case actionTypes.GET_MENU_ITEMS_BY_RESTAURANTS_ID_REQUEST:
+        case actionTypes.UPDATE_MENU_ITEMS_AVAILABILITY_REQUEST:
+        case actionTypes.DELETE_MENU_ITEM_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+                message: null
+            };
+        case actionTypes.CREATE_MENU_ITEM_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                menuItems: [...state.menuItems, action.payload],
+                message: "Food created successfully"
+            };
+        case actionTypes.GET_MENU_ITEMS_BY_RESTAURANTS_ID_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                menuItems: action.payload
+            };
+        case actionTypes.DELETE_MENU_ITEM_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                menuItems: state.menuItems.filter(
+                    (menuItem) => menuItem.id !== action.payload
+                ),
+            };
+        case actionTypes.UPDATE_MENU_ITEMS_AVAILABILITY_SUCCESS:
+            console.log("updated item id", action.payload.id)
+            return {
+                ...state,
+                loading: false,
+                menuItems: state.menuItems.map(
+                    (menuItem) => menuItem.id === action.payload.id ? action.payload : menuItem
+                ),
+            };
+        case actionTypes.SEARCH_MENU_ITEM_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                search: action.payload
+            };
+        case actionTypes.CREATE_MENU_ITEM_FAILURE:
+        case actionTypes.GET_MENU_ITEMS_BY_RESTAURANTS_ID_FAILURE:
+        case actionTypes.DELETE_MENU_ITEM_FAILURE:
+        case actionTypes.SEARCH_MENU_ITEM_FAILURE:
+        case actionTypes.UPDATE_MENU_ITEMS_AVAILABILITY_FAILURE:
+            return{
+                ...state,
+                loading:false,
+                error:action.payload,
+                message:null
+            };
+            default:
+                return state;
+    }
 
-export const SEARCH_MENU_ITEM_REQUEST = 'SEARCH_MENU_ITEM_REQUEST'
-export const SEARCH_MENU_ITEM_SUCCESS = 'SEARCH_MENU_ITEM_SUCCESS'
-export const SEARCH_MENU_ITEM_FAILURE = 'SEARCH_MENU_ITEM_FAILURE'
+};
 
-export const UPDATE_MENU_ITEMS_AVAILABILITY_REQUEST = 'UPDATE_MENU_ITEMS_AVAILABILITY_REQUEST'
-export const UPDATE_MENU_ITEMS_AVAILABILITY_SUCCESS = 'UPDATE_MENU_ITEMS_AVAILABILITY_SUCCESS'
-export const UPDATE_MENU_ITEMS_AVAILABILITY_FAILURE = 'UPDATE_MENU_ITEMS_AVAILABILITY_FAILURE'
+export default menuItemReducer;
