@@ -9,6 +9,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import restaurantReducer from "./restaurant/Reducer";
 import menuItemReducer from "./menu/Reducer";
 import cartReducer from "./cart/Reducer";
+import orderReducer from "./oders/Reducer";
 
 // export const store = configureStore({
 //   reducer: {
@@ -21,6 +22,8 @@ export const store = configureStore({
         restaurant: restaurantReducer,
         menu: menuItemReducer,
         cart:cartReducer,
+        order: orderReducer,
+    
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
