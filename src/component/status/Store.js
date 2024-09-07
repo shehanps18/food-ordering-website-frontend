@@ -10,6 +10,7 @@ import restaurantReducer from "./restaurant/Reducer";
 import menuItemReducer from "./menu/Reducer";
 import cartReducer from "./cart/Reducer";
 import orderReducer from "./oders/Reducer";
+import restaurantsOrderReducer from "./restaurant order/Reducer";
 
 // export const store = configureStore({
 //   reducer: {
@@ -23,7 +24,7 @@ export const store = configureStore({
         menu: menuItemReducer,
         cart:cartReducer,
         order: orderReducer,
-    
+        restOrder: restaurantsOrderReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
