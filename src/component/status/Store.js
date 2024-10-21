@@ -11,6 +11,7 @@ import menuItemReducer from "./menu/Reducer";
 import cartReducer from "./cart/Reducer";
 import orderReducer from "./oders/Reducer";
 import restaurantsOrderReducer from "./restaurant order/Reducer";
+import { ingredientReducer } from "./ingredients/Reducer";
 
 // export const store = configureStore({
 //   reducer: {
@@ -25,6 +26,7 @@ export const store = configureStore({
         cart:cartReducer,
         order: orderReducer,
         restOrder: restaurantsOrderReducer,
+        ingreients: ingredientReducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
